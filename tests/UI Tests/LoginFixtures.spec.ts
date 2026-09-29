@@ -11,14 +11,14 @@ test.describe('OrangeHRM Login Tests', () => {
   });
 
   // Valid Login Scenario
-  test.only('Checking With Valid credentials', async ({ loginPage }) => {
+  test('Checking With Valid credentials', async ({ loginPage }) => {
 
     await loginPage.enterValidCredentials();
 
   });
 
   // Invalid Login Scenario
-  test.skip('Checking With Invalid credentials', async ({ loginPage }) => {
+  test('Checking With Invalid credentials', async ({ loginPage }) => {
 
     await loginPage.enterInvalidCredentials();
 
