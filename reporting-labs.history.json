@@ -1,0 +1,21 @@
+[
+ {
+  "time": 1790699368254,
+  "duration": 9702.589,
+  "passed": 2,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 2,
+  "tests": {
+   "::tests/UI Tests/LoginPageInheritance.spec.ts::Login with inheritance": [
+    "p",
+    4519
+   ],
+   "::tests/UI Tests/LoginPageInheritance.spec.ts::Login with Polymorphism": [
+    "p",
+    4412
+   ]
+  }
+ }
+]

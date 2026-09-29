@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import reportingLabs from './reporting-labs.config';
 
 export default defineConfig({
   testDir: './tests',
@@ -10,7 +11,8 @@ export default defineConfig({
   reporter: [ 
     ['list'],
     ['html', { open: 'never' }],
-    ['allure-playwright']
+    ['allure-playwright'],
+    ['reporting-labs', reportingLabs]
   ],
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
