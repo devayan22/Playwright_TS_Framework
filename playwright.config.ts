@@ -19,7 +19,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     channel: 'chrome', //Use the installed Google Chrome browser instead of Playwright's bundled Chromium.
     //browserName: 'chromium',
-    headless: false,
+    headless: true,
     actionTimeout: 30000,
     navigationTimeout: 80000,
     screenshot: 'on-first-failure',
