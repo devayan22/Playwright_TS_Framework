@@ -1,4 +1,5 @@
 import { Page, Locator } from '@playwright/test';
+import { envConfig } from '../config/envConfig';
 export class LoginPage
 {
 
@@ -17,14 +18,14 @@ constructor(page: Page)
 
 
 async enterValidCredentials() {
-    await this.txtUsername.fill('Admin');
-    await this.txtPassword.fill('admin123');
+    await this.txtUsername.fill(envConfig.orangeHRMUsername);
+    await this.txtPassword.fill(envConfig.orangeHRMPassword);
     await this.btnLogin.click();
 }
 
 async enterInvalidCredentials() {
-    await this.txtUsername.fill('AdMin');
-    await this.txtPassword.fill('admin129');
+    await this.txtUsername.fill(envConfig.InvalidOrangeHRMUsername);
+    await this.txtPassword.fill(envConfig.InvalidOrangeHRMPassword);
     await this.btnLogin.click();
 }
 }

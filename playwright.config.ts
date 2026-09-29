@@ -17,23 +17,48 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    channel: 'chrome', //Use the installed Google Chrome browser instead of Playwright's bundled Chromium.
+    //browserName: 'chromium',
     headless: false,
     actionTimeout: 30000,
     navigationTimeout: 80000,
     screenshot: 'on-first-failure',
     trace: 'retain-on-failure',
     video: 'retain-on-failure',
+    /*
+    launchOptions: {
+        slowMo: 500 //slow down Playwright operations by 500 ms
+    }
+    */
      /* viewport: {
           width: 1280,
           height: 720
       }*/
-  },
+  }
 
+  /*
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      //browserName: 'chromium',
+      
+      //Yes, it opens Playwright's installed/bundled Chromium browser with the Desktop Chrome settings.
+      
+      /*
+       Without browserName:
+       Desktop Chrome settings
+        +
+       default browser → Chromium
+
+       With browserName: 'chromium':
+       Desktop Chrome settings
+        +
+       explicitly selected browser → Chromium
+      
+   
     },
+    
     /*
     {
       name: 'firefox',
@@ -64,7 +89,8 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  
+  //],
 
   /* Run your local dev server before starting the tests */
   // webServer: {
@@ -73,3 +99,6 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
+
+
+

@@ -5,6 +5,10 @@ import { urls } from '../../config/urls';
 
 test.describe('OrangeHRM Login Tests', () => {
 
+   test.beforeAll(async () => {
+        console.log('beforeAll: Runs once before all tests');   
+    });
+
     test.beforeEach(async ({ page }) => {
 
         await page.goto(
@@ -12,6 +16,14 @@ test.describe('OrangeHRM Login Tests', () => {
             { waitUntil: 'networkidle' }
         );
 
+    });
+    
+    test.afterEach(async ({ page }) => {
+    await page.close();
+    });
+
+   test.afterAll(async () => {
+        console.log('afterAll: Runs once after all tests');
     });
 
     test('Valid Login', async ({ page }) => {
@@ -29,3 +41,21 @@ test.describe('OrangeHRM Login Tests', () => {
     });
 
 });
+
+/*
+beforeAll
+    ↓
+beforeEach
+    ↓
+Valid Login
+    ↓
+afterEach
+    ↓
+beforeEach
+    ↓
+Invalid Login
+    ↓
+afterEach
+    ↓
+afterAll
+*/

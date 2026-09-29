@@ -3,12 +3,12 @@ import { LoginPage } from '../../pages/LoginPage';
 import { urls } from '../../config/urls';
 // Valid Login Scenario
 
-test.only('Checking With Valid credentials', 
+test('Checking With Valid credentials', 
   {
     tag: ['@smoke', '@login']
   },async({page})=>
 {
-  await page.goto(urls.orangeHRM.login,{ waitUntil: 'networkidle' });
+  await page.goto(urls.orangeHRM.login,{ waitUntil: 'domcontentloaded' });
   
   const login = new LoginPage(page);
   await login.enterValidCredentials();
@@ -17,7 +17,7 @@ test.only('Checking With Valid credentials',
 
 // Invalid Login Scenario
 
-test.skip('Checking With Invalid credentials',
+test('Checking With Invalid credentials',
   {
     tag: ['@regression', '@login', '@negative']
   },async({page})=>
