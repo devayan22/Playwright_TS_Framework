@@ -1,0 +1,8 @@
+services:
+  tests:
+    build: .
+    environment:
+      - CI=true
+    volumes:
+    - ./reporting-labs:/app/reporting-labs
+    command: npx playwright test --project=chromium

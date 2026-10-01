@@ -1,0 +1,37 @@
+services:
+
+  shard1:
+    build: .
+    environment:
+      - CI=true
+    volumes:
+      - ./reporting-labs-shard1:/app/reporting-labs
+      - ./blob-shard1:/app/blob-report
+    command: npx playwright test --project=chromium --shard=1/4
+
+  shard2:
+    build: .
+    environment:
+      - CI=true
+    volumes:
+      - ./reporting-labs-shard2:/app/reporting-labs
+      - ./blob-shard2:/app/blob-report
+    command: npx playwright test --project=chromium --shard=2/4
+
+  shard3:
+    build: .
+    environment:
+      - CI=true
+    volumes:
+      - ./reporting-labs-shard3:/app/reporting-labs
+      - ./blob-shard3:/app/blob-report
+    command: npx playwright test --project=chromium --shard=3/4
+
+  shard4:
+    build: .
+    environment:
+      - CI=true
+    volumes:
+      - ./reporting-labs-shard4:/app/reporting-labs
+      - ./blob-shard4:/app/blob-report
+    command: npx playwright test --project=chromium --shard=4/4
