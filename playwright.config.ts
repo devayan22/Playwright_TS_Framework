@@ -12,14 +12,15 @@ export default defineConfig({
     ['list'],
     ['html', { open: 'never' }],
     ['allure-playwright'],
-    ['reporting-labs', reportingLabs]
+    ['reporting-labs', reportingLabs],
+    ['blob', { outputDir: 'blob-report' }]
   ],
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    channel: 'chrome', //Use the installed Google Chrome browser instead of Playwright's bundled Chromium.
+   // channel: 'chrome', //Use the installed Google Chrome browser instead of Playwright's bundled Chromium.
     //browserName: 'chromium',
     headless: true,
     actionTimeout: 30000,
@@ -36,13 +37,14 @@ export default defineConfig({
           width: 1280,
           height: 720
       }*/
-  }
-
-  /*
+  },
+  
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+    }
+  ]
       //browserName: 'chromium',
       
       //Yes, it opens Playwright's installed/bundled Chromium browser with the Desktop Chrome settings.
