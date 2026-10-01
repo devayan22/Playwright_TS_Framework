@@ -22,15 +22,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
+        
         stage('Run Playwright Tests') {
             steps {
-                bat 'docker compose up --build'
+                bat 'docker compose up --build --abort-on-container-exit --exit-code-from tests'
             }
         }
     }
